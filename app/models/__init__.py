@@ -1,3 +1,3 @@
-from .base import Base,Boys,Girls
+from .base import Base,Boys,Girls,PairReview,Conscription
 
-__all__ = ['Base','Boys','Girls']
+__all__ = ['Base','Boys','Girls',"PairReview","Conscription"]

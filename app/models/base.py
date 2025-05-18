@@ -40,7 +40,7 @@ class Boys(Base):
     #     back_populates="boys",
     #     repr=False
     # )
-    # Изменяем отношение girls в классе Boys
+
     girls: Mapped[Optional[List["Girls"]]] = relationship(
         secondary=boys_girls,
         # lazy="write_only",
