@@ -84,7 +84,7 @@ class Girls(Base):
 class PairReview(Base):
     __tablename__ = "pair_reviews"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True,autoincrement=False,init=False)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True,autoincrement=True,init=False)
     boy_id: Mapped[int] = mapped_column(Integer)
     girl_id: Mapped[int] = mapped_column(Integer)
     review: Mapped[str] = mapped_column(String(200))
@@ -110,18 +110,19 @@ class Conscription(Base):
         ForeignKey
             (
             "boys.boy_id",
-            ondelete="Set Null"
+            # ondelete="Set Null"
             # ondelete = "CASCADE"
         ),
         unique=True,
-        nullable=True)
+        nullable=False)
 
 
 
     boy: Mapped["Boys"] = relationship(
         "Boys",
         back_populates="conscription",
-        repr=False
+        repr=False,
+        init = False
     )
 
 
