@@ -1,6 +1,5 @@
 from typing import List, Optional, Annotated
 
-import tabulate
 from sqlalchemy import Select, Column, Integer, String, ForeignKey, Table, insert, select, exists, ForeignKeyConstraint, \
     and_, Boolean, Engine, text, update, func, Null
 from sqlalchemy.dialects.mysql import TINYINT
@@ -126,14 +125,6 @@ class Conscription(Base):
     )
 
 
-
-
-
-def load_all(session,name):
-    tab = session.execute(text(f"Select * from {name}")).mappings().all()
-    # print(tab)
-    # cols = session.execute()
-    print(tabulate(tab,headers="keys",tablefmt = "psql"))
 
 def full_table(session: Session) -> None:
     # Вставка данных в boys
