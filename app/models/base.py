@@ -46,15 +46,15 @@ class Boys(Base):
         # lazy="write_only",
         viewonly=False, # Разрешаем изменения
         repr=True,
-        default_factory=list
+        # default_factory=list
     )
 
     conscription: Mapped[Optional["Conscription"]] = relationship(
         "Conscription",
         back_populates="boy",
         uselist=False,
-        default= None,
-        single_parent=True, # Логично в родительском классе
+        # default= None,
+        single_parent=True # Логично в родительском классе
     )
 
     @validates("marks")

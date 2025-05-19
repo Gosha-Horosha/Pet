@@ -1,4 +1,4 @@
-from schems import(
+from app.schema.schems import(
     Boy, BoyCreate, BoyUpdate,
     Girl, GirlCreate, GirlUpdate,
     Review, ReviewCreate, ReviewUpdate,

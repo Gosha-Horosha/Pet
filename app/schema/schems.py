@@ -3,28 +3,23 @@ from typing import Optional
 from datetime import datetime
 
 
-class PersonBase(BaseModel):
-    name: str
-    age: int
-    marks: int
 
-class PersonUpdateBase(BaseModel):
-    name: str | None = None
-    age: int | None = None
-    marks: int | None = None
 
 
 # Boys
-class BoyBase(PersonBase):
-    pass
-
+class BoyBase(BaseModel):
+    boy_name: str
+    boy_age: int
+    marks: int
 
 class BoyCreate(BoyBase):
     pass
 
 
-class BoyUpdate(PersonUpdateBase):
-    pass
+class BoyUpdate(BaseModel):
+    boy_name: Optional[str] = None
+    boy_age: Optional[int] = None
+    marks: Optional[int]  = None
 
 
 class Boy(BoyBase):
@@ -35,8 +30,8 @@ class Boy(BoyBase):
         json_schema_extra={
             "example": {
                 "boy_id": 1,
-                "name": "Alex",
-                "age": 15,
+                "boy_name": "Alex",
+                "boy_age": 15,
                 "marks": 85
             }
         }
@@ -44,16 +39,20 @@ class Boy(BoyBase):
 
 
 # Girls
-class GirlBase(PersonBase):
-    pass
+class GirlBase(BaseModel):
+    girl_name: str
+    girl_age: int
+    marks: int
 
 
 class GirlCreate(GirlBase):
     pass
 
 
-class GirlUpdate(PersonUpdateBase):
-    pass
+class GirlUpdate(BaseModel):
+    girl_name: str | None = None
+    girl_age: int | None = None
+    marks: int | None = None
 
 
 class Girl(GirlBase):
@@ -64,8 +63,8 @@ class Girl(GirlBase):
         json_schema_extra={
             "example": {
                 "girl_id": 1,
-                "name": "Dasha",
-                "age": 18,
+                "girl_name": "Dasha",
+                "girl_age": 18,
                 "marks": 66
             }
         }

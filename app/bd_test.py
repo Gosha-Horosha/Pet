@@ -16,7 +16,7 @@ def load_all(session,name):
 
 # if __name__ == "__main__":
 #     engine = create_engine(
-#         "mysql+pymysql://root:qwertyeight2004@localhost/new",
+#
 #         connect_args={"charset": "utf8mb4"},
 #         pool_pre_ping=True,
 #         echo=False
